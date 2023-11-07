@@ -1,9 +1,20 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
+import Brands from '../components/Brands'
+import Latest from '../components/Latest'
+import Info from '../components/Info'
+import Footer from '../components/Footer'
 
 const Homepage = () => {
   return (
-    <div>
-      <div>Homepage</div>
+    <div className='home'>
+      <Navbar/>
+      <Hero/>
+      <Latest/>
+      <Brands/>
+      <Info/>
+      <Footer/>
     </div>
   )
 }

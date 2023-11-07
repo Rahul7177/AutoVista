@@ -1,0 +1,9 @@
+.carinfo-cont
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5rem;
+    width: 100%;
+    gap: 20px;
+}
