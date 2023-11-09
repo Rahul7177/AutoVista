@@ -15,11 +15,11 @@ const Navbar = () => {
             <div className="navbar-link-dropdown">
                 <a className="dropbtn" href='/'>New <i className="fas fa-caret-down"></i></a>
                 <div className="dropdown-content">
-                    <a href="/">Sedans</a>
-                    <a href="/">SUVs</a>
-                    <a href="/">Trucks</a>
-                    <a href="/">Convertibles</a>
-                    <a href="/">Mustangs</a>
+                    <Link to='/carlist'>Sedans</Link>
+                    <Link to="/carlist">SUVs</Link>
+                    <Link to="/carlist">Trucks</Link>
+                    <Link to="/carlist">Convertibles</Link>
+                    <Link to="/carlist">Mustangs</Link>
                 </div>
             </div>
             <div className="navbar-link-dropdown">
