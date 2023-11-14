@@ -1,0 +1,71 @@
+.banner-container
+{
+    width: 100%;
+    background-color: var(--secondary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.banner-section
+{
+    display: flex;
+    /* align-items: center; */
+    padding: 5px;
+    width: 100%;
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.car-img
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 39.5%;
+    margin-right: 0.5%;
+    background-color: var(--secondary-text);
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 10px var(--primary-text); */
+}
+
+.car-img img
+{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info
+{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    align-items: flex-start;
+    width: 60%;
+    padding:  10px 20px;
+    gap: 20px;
+    border-radius: 10px;
+    background-color: var(--primary-bg);
+}
+
+.title
+{
+    display: flex;
+    font-size: 3rem;
+}
+
+.price
+{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.desc
+{
+    display: flex;
+    text-align: start;
+}

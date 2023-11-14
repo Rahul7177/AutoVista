@@ -1,8 +1,15 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import Banner from '../components/Banner'
 
 const CarDetails = () => {
   return (
-    <div>CarDetails</div>
+    <div>
+      <Navbar/>
+        <Banner/>
+      <Footer/>
+    </div>
   )
 }
 
