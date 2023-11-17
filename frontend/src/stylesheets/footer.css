@@ -5,7 +5,7 @@ footer {
     text-align: center;
     /* box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); subtle shadow to lift footer off the page */
     position: relative;
-    z-index: 2;
+    z-index: -1;
     font-size: 3rem;
   }
   .footer-content {

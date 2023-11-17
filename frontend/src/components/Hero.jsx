@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheets/hero.css';
+import { Link } from 'react-router-dom';
 import bg from '../assets/car2.mp4'
 
 const Hero = () => {
@@ -13,9 +14,9 @@ const Hero = () => {
             <input type="text" placeholder="Search model, or type"/>
         </div>
         <div class="shop-buttons">
-            <button>Shop New</button>
-            <button>Shop Used</button>
-            <button>Shop Electric</button>
+        <Link to='/carlist'><button>Shop New</button></Link>
+        <Link to='/carlist'><button>Shop Used</button></Link>
+        <Link to='/carlist?fuel=Electric'><button>Shop Electric</button></Link>
         </div>
     </section>
 </div>

@@ -41,7 +41,7 @@ const Latest = () => {
 		</div>
 
       <div className="see-more" onclick="showMore()">
-        <Link to='/carlist' className='link'>See All</Link>
+        <Link to='/carlist?date=2023' className='link'>See All</Link>
       </div>
     </div>
 

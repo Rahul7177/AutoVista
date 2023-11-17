@@ -2,28 +2,25 @@ import React from 'react'
 import '../stylesheets/banner.css'
 import carimg from '../assets/Volvo_full.avif'
 
-const Banner = () => {
+const Banner = ({id,image,name,type,price,desc}) => {
   return (
     <div className='banner-container'>
         <div className='banner-section'>
             <div className='car-img'>
-                <img src={carimg} alt="img" />
+                <img src={image} alt="img" />
             </div>
             <div className='info'>
                     <div className='title'>
-                        Volvo S60 Recharge
+                        {name}
                     </div>
                     <div className='price'>
-                        Price : $45000
-                    </div>
-                    <div className='date'>
-                        Launch Date : August 2023
+                        Price : ${price}
                     </div>
                     <div className='type'>
-                        Type : Sedan
+                        Type : {type}
                     </div>
                     <div className='desc'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eligendi voluptatem tempore quas praesentium nesciunt facilis odio, in possimus quidem iure hic enim ad optio rerum, molestiae sequi nihil illum!
+                        {desc}
                     </div>
             </div>
         </div>
