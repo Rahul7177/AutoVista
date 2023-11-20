@@ -1,10 +1,11 @@
 import React from 'react'
 import '../stylesheets/banner.css'
-import carimg from '../assets/Volvo_full.avif'
+import { Link} from 'react-router-dom';
 
 const Banner = ({id,image,name,type,price,desc}) => {
   return (
-    <div className='banner-container'>
+      <div className='banner-container'>
+        <Link to={`/cardetails?name=${name}`} className='banner-link' >
         <div className='banner-section'>
             <div className='car-img'>
                 <img src={image} alt="img" />
@@ -24,6 +25,7 @@ const Banner = ({id,image,name,type,price,desc}) => {
                     </div>
             </div>
         </div>
+        </Link>
     </div>
   )
 }

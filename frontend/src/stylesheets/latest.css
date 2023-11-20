@@ -129,3 +129,8 @@
     background-color: var(--accent);
     color: var(--primary-text);
 }
+.see-more .link:hover
+{
+    background-color: var(--accent);
+    color: var(--primary-text);
+}

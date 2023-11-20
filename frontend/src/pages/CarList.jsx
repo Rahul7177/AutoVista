@@ -33,7 +33,6 @@ const CarList = () => {
     query = date
   }
 
-  console.log(brand);
   const [cars, setCars] = useState("");
   useEffect(() => {
     const fetchdata = async () => {
@@ -54,6 +53,7 @@ const CarList = () => {
             // console.log(cars.Name)
             <Banner
               key = {cars._id}
+              id = {cars._id}
               name = {cars.Name}
               type = {cars.Type}
               image={cars.Image}
