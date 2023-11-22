@@ -16,6 +16,7 @@ const CarList = () => {
   const fuel = params.get('fuel');
   const type = params.get('type');
   const date = params.get('date');
+  const name = params.get('name');
   
   let query = ""; 
   if(brand)
@@ -31,6 +32,10 @@ const CarList = () => {
   else if(date)
   {
     query = date
+  }
+  else if(name)
+  {
+    query = name
   }
 
   const [cars, setCars] = useState("");

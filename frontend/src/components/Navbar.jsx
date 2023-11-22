@@ -1,10 +1,17 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import logo from '../assets/logo.png';
 import '../stylesheets/navbar.css';
-import { Link} from 'react-router-dom';
-
+import { Link,useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 const Navbar = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+    console.log(searchQuery);
+    const handleSearch = (e) => {
+      
+      navigate(`/cardetails?name=${searchQuery}`);
+    };
 
   return (
 <div className='nav-container'>
@@ -26,10 +33,10 @@ const Navbar = () => {
             <div className="navbar-link-dropdown">
                 <a className="dropbtn" href='/'>Used<i className="fas fa-caret-down"></i></a>
                 <div className="dropdown-content">
-                    <a href="/">Used Nanos</a>
-                    <a href="/">Used Mustangs</a>
-                    <a href="/">Used Trucks</a>
                     <a href="/">Used Sedans</a>
+                    <a href="/">Used SUVs</a>
+                    <a href="/">Used Trucks</a>
+                    <a href="/">Used Mustangs</a>
                 </div>
             </div>
             <div className="navbar-link-dropdown">
@@ -41,33 +48,27 @@ const Navbar = () => {
                     <a href="/">Electric Trucks</a>
                 </div>
             </div>
-            {/* <div className="navbar-link-dropdown">
-                <a className="dropbtn" href='/'>Research <i className="fas fa-caret-down"></i></a>
-                <div className="dropdown-content">
-                    <a href="/">Car Reviews</a>
-                    <a href="/">Pricing & Deals</a>
-                    <a href="/">Car Leans</a>
-                    <a href="/">Car Comparisons</a>
-                    <a href="/">Quiz Play</a>
-                </div>
-            </div> */}
+
             <a href="/">Sell Your Car</a>
         </div>
 
         <div className='nav-right'>
         <div className="navbar-search">
-            <input type="text" placeholder="Search"/>
-            <i className="fa-solid fa-magnifying-glass search_icon"></i>
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <i className="fa-solid fa-magnifying-glass search_icon" onClick={handleSearch}></i>
         </div>
-        {/* <div className="navbar-login">
-            <Link to="/login"><i className="fas fa-user"></i></Link>
-        </div> */}
+
         <div className="navbar-link-dropdown account">
                 <a className="dropbtn user-i" href='/'><i className="fas fa-user"></i></a>
                 <div className="dropdown-content">
-                    <Link to='/'>Profile</Link>
-                    <Link to='/login'>Login</Link>
+                    <Link to='/profile'>Profile</Link>
                     <Link to='/'>My Listings</Link>
+                    {/* <Link to='/logout'>Log Out</Link> */}
                 </div>
         </div>
         </div>

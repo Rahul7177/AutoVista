@@ -43,7 +43,7 @@ const CarDetails = () => {
   }
 
   if (!car) {
-    return <div>Loading...</div>;
+    return <div style={{ fontSize: '2rem' }}>Not Found</div>;
   }
 
   return (

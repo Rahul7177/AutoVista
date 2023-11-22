@@ -7,6 +7,9 @@ const CarSchema = mongoose.Schema({
   Price: Number,
   Image: String,
   Desc:String,
+  FuelType:String,
+  LaunchDate: String,
+  Acceleration: String,
 });
 
 module.exports = mongoose.model("Cars", CarSchema);
