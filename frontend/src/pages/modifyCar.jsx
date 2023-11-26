@@ -20,7 +20,7 @@ const ModifyCar = () => {
 
   const handleModify = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/cars/modify/${carName}`, {
+      const response = await fetch(`https://autovista.vercel.app/api/cars/modify/${carName}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
