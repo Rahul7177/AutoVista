@@ -8,7 +8,7 @@ const port = process.env.PORT || 3001
 
 app.use(express.json())
 app.use(cors({ 
-  origin: 'https://autovista.vercel.app/',
+  origin: 'https://autovista.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
