@@ -4,7 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const Cars = require("./Cars");
 const app = express()
-const port = 3001
+const port = process.env.PORT || 3001
 
 app.use(express.json())
 app.use(cors({ 
@@ -22,7 +22,6 @@ mongoose.connect(connection_url);
 
 app.get("/",(req,res) => {res.send("Home page")
 });
-
 
 app.get("/cars/get", async (req, res) => {
   try {
