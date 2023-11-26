@@ -14,7 +14,7 @@ mongoose.connect(connection_url);
 
 router.use(cookieParser());
 router.use(cors({ 
-  origin: 'https://autovista.vercel.app/', // Replace with the actual origin of your frontend
+  origin: 'https://autovista.vercel.app', // Replace with the actual origin of your frontend
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   secure: process.env.NODE_ENV === 'production',
