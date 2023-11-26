@@ -7,7 +7,7 @@ const router = express.Router();
 const cookieParser = require("cookie-parser");
 
 router.use(cors({ 
-    origin: 'http://localhost:3000', // Replace with the actual origin of your frontend
+    origin: 'https://autovista.vercel.app/', // Replace with the actual origin of your frontend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: 'include',
   }));
