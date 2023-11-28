@@ -10,7 +10,7 @@ const DeleteCar = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`https://autovista.vercel.app/api/cars/delete/${carName}`, {
+      const response = await fetch(`https://auto-vista-server.vercel.app/api/cars/delete/${carName}`, {
         method: 'DELETE',
       });
 

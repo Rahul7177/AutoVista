@@ -27,7 +27,7 @@ const AddCar = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://autovista.vercel.app/cars/add', {
+      const res = await fetch('https://auto-vista-server.vercel.app/cars/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

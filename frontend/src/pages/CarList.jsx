@@ -41,7 +41,7 @@ const CarList = () => {
   const [cars, setCars] = useState("");
   useEffect(() => {
     const fetchdata = async () => {
-      const data = await axios.get(`/cars/get/${query}`);
+      const data = await axios.get(`https://auto-vista-server.vercel.app/cars/get/${query}`);
       setCars(data);
       console.log(data);
     };

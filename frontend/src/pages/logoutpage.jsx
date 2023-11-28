@@ -6,7 +6,7 @@ const LogoutPage = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch('https://autovista.vercel.app/logout', {
+      const res = await fetch('https://auto-vista-server.vercel.app/logout', {
         method: 'GET',
         headers: {
           Accept: 'application/json',

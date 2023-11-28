@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react';
 import logo from '../assets/logo.png';
 import '../stylesheets/navbar.css';
 import { Link,useNavigate} from 'react-router-dom';
-import axios from 'axios';
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');

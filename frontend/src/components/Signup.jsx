@@ -32,7 +32,7 @@ const Signup = () => {
   const postData = async (e) => {
     e.preventDefault();
     const {name, email, password} = user;
-    const res = await fetch("https://autovista.vercel.app/register", {
+    const res = await fetch("https://auto-vista-server.vercel.app/register", {
       method: "POST",
       headers: {
         "Content-Type" : "application/json"

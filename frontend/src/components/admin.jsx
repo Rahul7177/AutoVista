@@ -9,7 +9,7 @@ const Admin = () => {
 
   const callProfile = async () => {
     try {
-      const res = await fetch('https://autovista.vercel.app/user', {
+      const res = await fetch('https://auto-vista-server.vercel.app/user', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
