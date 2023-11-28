@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import axios from '../axios'
 import '../stylesheets/carbanner.css'
 import Carbanner from '../components/Carbanner';
+import instance from '../axios';
 
 
 const CarDetails = () => {
@@ -19,7 +20,7 @@ const CarDetails = () => {
   useEffect(() => {
     const fetchCarData = async () => {
       try {
-        const response = await axios.get(`/cars/${name}`);
+        const response = await instance.get(`/cars/${name}`);
         const data = response.data;
         setCar(data[0]);
       } catch (error) {
