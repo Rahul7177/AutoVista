@@ -31,8 +31,6 @@ const Login = () => {
       window.alert("Login Successful!");
       navigate('/');
     }
-
-
   }
 
   return (
