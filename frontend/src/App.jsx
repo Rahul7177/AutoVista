@@ -12,8 +12,25 @@ import AdminPage from './pages/adminpage';
 import AddCar from './pages/addCar';
 import ModifyCar from './pages/modifyCar';
 import DeleteCar from './pages/deleteCar';
+import React, { useState, useEffect } from 'react';
+import Loader from './components/loader';
+
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <Routes>
       <Route path='/' element={<Homepage/>} />
