@@ -1,15 +1,13 @@
-import React ,{useEffect,useState}from 'react'
-import axios from '../axios'
-import Navbar from '../components/Navbar'
-// import CarInfo from '../components/CarInfo'
-import Footer from '../components/Footer'
-import '../stylesheets/CarList.css'
-import Banner from '../components/Banner'
+import React, { useEffect, useState } from 'react';
+import axios from '../axios';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Banner from '../components/Banner';
 import { useLocation } from 'react-router-dom';
-
+import Loader from '../components/loader'; // Import the Loader component
+import '../stylesheets/CarList.css';
 
 const CarList = () => {
-
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const brand = params.get('brand');
@@ -19,56 +17,62 @@ const CarList = () => {
   const name = params.get('name');
   
   let query = ""; 
-  if(brand)
-  {
+  if (brand) {
     query = brand;
-  }
-  else if(fuel){
-    query = fuel
-  }
-  else if(type){
-    query = type
-  }
-  else if(date)
-  {
-    query = date
-  }
-  else if(name)
-  {
-    query = name
+  } else if (fuel) {
+    query = fuel;
+  } else if (type) {
+    query = type;
+  } else if (date) {
+    query = date;
+  } else if (name) {
+    query = name;
   }
 
-  const [cars, setCars] = useState("");
+  const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading
+
   useEffect(() => {
-    const fetchdata = async () => {
-      const data = await axios.get(`https://auto-vista-server.vercel.app/cars/get/${query}`);
-      setCars(data);
-      console.log(data);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://auto-vista-server.vercel.app/cars/get/${query}`);
+        setCars(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false); // Always set loading to false after data fetching completes
+      }
     };
-    fetchdata();
+    fetchData();
   }, [query]);
-
 
   return (
     <div>
-      <Navbar/>
-
-      {cars &&
-          cars?.data.map((cars) => (
-            // console.log(cars.Name)
+      <Navbar />
+      
+      {loading ? (
+        <Loader /> // Show the loader while loading
+      ) : (
+        cars.length > 0 ? (
+          cars.map((car) => (
             <Banner
-              key = {cars._id}
-              id = {cars._id}
-              name = {cars.Name}
-              type = {cars.Type}
-              image={cars.Image}
-              price = {cars.Price}
-              desc = {cars.Desc}
+              key={car._id}
+              id={car._id}
+              name={car.Name}
+              type={car.Type}
+              image={car.Image}
+              price={car.Price}
+              desc={car.Desc}
             />
-          ))}
-      <Footer/>
-    </div>
-  )
-}
+          ))
+        ) : (
+          <p>No cars found</p>
+        )
+      )}
 
-export default CarList
+      <Footer />
+    </div>
+  );
+};
+
+export default CarList;

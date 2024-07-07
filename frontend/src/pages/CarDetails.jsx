@@ -1,17 +1,15 @@
-import React,{useEffect,useState} from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-// import Banner from '../components/Banner'
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
-import axios from '../axios'
-import '../stylesheets/carbanner.css'
-import Carbanner from '../components/Carbanner';
 import instance from '../axios';
-
+import Loader from '../components/loader'; // Import the Loader component
+import '../stylesheets/carbanner.css';
+import Carbanner from '../components/Carbanner';
 
 const CarDetails = () => {
-
   const [car, setCar] = useState(null);
+  const [loading, setLoading] = useState(true); // State to manage loading
   const [error, setError] = useState(null);
   const { search } = useLocation();
   const params = new URLSearchParams(search);
@@ -25,7 +23,8 @@ const CarDetails = () => {
         setCar(data[0]);
       } catch (error) {
         setError(error.message);
-        console.log(error.message)
+      } finally {
+        setLoading(false); // Set loading to false after data fetching completes (success or error)
       }
     };
 
@@ -39,6 +38,10 @@ const CarDetails = () => {
     }
   }, [car]);
 
+  if (loading) {
+    return <Loader />; // Show loader while loading data
+  }
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -49,12 +52,21 @@ const CarDetails = () => {
 
   return (
     <div>
-      <Navbar/>
-        <Carbanner img={car.Image} name={car.Name} type={car.Type} make={car.Make} fuel={car.FuelType} date={car.LaunchDate} price={car.Price} desc={car.Desc}/>
-        {/* <Specifications/> */}
-      <Footer/>
+      <Navbar />
+      <Carbanner
+        img={car.Image}
+        name={car.Name}
+        type={car.Type}
+        make={car.Make}
+        fuel={car.FuelType}
+        date={car.LaunchDate}
+        price={car.Price}
+        desc={car.Desc}
+      />
+      {/* <Specifications/> */}
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default CarDetails
+export default CarDetails;
